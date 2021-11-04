@@ -80,23 +80,22 @@ console.log('array', arrayTeam);
 // const new3 = {
 //   name: 'Chung Li',
 //   role: 'Public relations',
-//   foto: 'img src="img/new-team-member-02.jpg'
+//   foto: 'img src="img/new-team-member-03.jpg'
 // }
 // const new4 = {
 //   name: 'Mark Lenders',
 //   role: 'Financial manager',
-//   foto: 'img src="img/new-team-member-02.jpg'
+//   foto: 'img src="img/new-team-member-04.jpg'
 // }
 
 function cicleCards(){
-  for(let key in arrayTeam){
-    const card = arrayTeam[key];
+  for(let key of arrayTeam){
 
-    console.log('card', card);
+    console.log('card', key);
   
-    const cardImg = card.foto;
-    const cardName = card.name;
-    const cardRole = card.role;
+    const cardImg = key.foto;
+    const cardName = key.name;
+    const cardRole = key.role;
   
     teamContainer.innerHTML +=
   
