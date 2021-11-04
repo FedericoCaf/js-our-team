@@ -1,19 +1,16 @@
 
-
 const arrayTeam = [
 
   {
     foto: 'img/wayne-barnett-founder-ceo.jpg',
     name: 'Wayne Barnett',
     role: 'Founder & CEO'
-    
   },
 
   {
     foto: 'img/angela-caroll-chief-editor.jpg',
     name: 'Angela Caroll',
     role: 'Chief Editor'
-    
   },
 
   {
@@ -38,27 +35,42 @@ const arrayTeam = [
     foto: 'img/barbara-ramos-graphic-designer.jpg',
     name: 'Barbara Ramos',
     role: 'Graphic Designer'
-   
   }
   
 ]
 
-const container = document.querySelector('.team-container');
-
+const teamContainer = document.querySelector('.team-container');
 const memberButton = document.getElementById('addMemberButton');
-memberButton.addEventListener('click', function(){
- addCards();
-})
 
-function addCards(){
- //aggiunge il nuovo oggetto
-}
+cicleCards();
 
+  memberButton.addEventListener('click', function(){
+  const nameForm = document.getElementById('name').value;
+  const roleForm = document.getElementById('role').value;
+  const imgForm = document.getElementById('image').value;
+  console.log('name', nameForm);
+  console.log('role', roleForm);
+  console.log('image', imgForm);
+  
+  const newCard =
+  {
+    foto: imgForm,
+    name: nameForm,
+    role: roleForm
+  };
+  
+  arrayTeam.push(newCard);
+  teamContainer.innerHTML ='';
+  cicleCards();
+
+});
+
+console.log('array', arrayTeam);
 
 // const new1 = {
 //   name: 'Anita Franco',
 //   role: 'Administrator',
-//   foto: 'img src="img/new-team-member-01.jpg'
+//   foto: 'img/new-team-member-01.jpg'
 // }
 // const new2 = {
 //   name: 'Michael Corleone',
@@ -76,17 +88,17 @@ function addCards(){
 //   foto: 'img src="img/new-team-member-02.jpg'
 // }
 
-
+function cicleCards(){
   for(let key in arrayTeam){
     const card = arrayTeam[key];
-  
+
     console.log('card', card);
   
     const cardImg = card.foto;
     const cardName = card.name;
     const cardRole = card.role;
   
-    container.innerHTML +=
+    teamContainer.innerHTML +=
   
     `
     <div class="team-card">
@@ -100,6 +112,8 @@ function addCards(){
           </div>
     `
   }
+}
+  
 
 
 
